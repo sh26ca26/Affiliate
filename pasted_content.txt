@@ -1,0 +1,245 @@
+Affiliate SaaS System – Fullstack README
+
+🧠 Overview
+
+A modern Affiliate & Referral SaaS Platform that acts as a third-party bridge between e-commerce merchants and individual affiliates. The system allows merchants to integrate easily while giving affiliates unique referral links to share and earn rewards.
+
+Built using React Native (Expo Go) for cross-platform mobile support, Tailwind CSS + shadcn/ui for elegant UI design, Lucide React icons, and MySQL for reliable data storage.
+
+
+---
+
+🎨 Design System Setup (Dark Mode Default)
+
+💡 Styling Libraries
+
+Tailwind CSS – core styling engine
+
+shadcn/ui – reusable, accessible UI components
+
+Lucide React – premium icons
+
+
+🌗 Theme Configuration
+
+Default Mode: Dark
+Toggleable Light Mode available via ToggleThemeButton
+
+🖌️ tailwind.config.js
+
+module.exports = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        primary: {
+          DEFAULT: '#14b8a6', // Teal
+          light: '#5eead4',
+          dark: '#0d9488',
+        },
+        background: {
+          light: '#f9fafb',
+          dark: '#0f172a',
+        },
+        accent: '#5eead4',
+      },
+    },
+  },
+};
+
+🎨 Font & Color Style
+
+Element	Light Mode	Dark Mode
+
+Background	#f9fafb	#0f172a
+Text	#1f2937	#f9fafb
+Primary	#14b8a6	#14b8a6
+Accent	#5eead4	#5eead4
+Shadow	rgba(0,0,0,0.05)	rgba(0,0,0,0.4)
+
+
+✨ Fonts
+
+Inter
+
+Cairo
+
+Poppins
+
+
+💠 Example Components
+
+Navbar / Sidebar / Footer
+
+Referral Dashboard Cards
+
+Wallet Summary Widget
+
+CTA Buttons & Alerts
+
+
+
+---
+
+🧩 System Architecture Overview
+
+Role	Description
+
+Admin	Manages the entire system, monitors transactions, and configures merchant integrations.
+Merchant	E-commerce owner who connects store APIs and defines reward rules.
+Affiliate	Marketer who shares referral links and earns rewards for conversions.
+Customer	Buyer who completes a purchase through an affiliate link.
+
+
+🔁 Data Flow Diagram
+
++-----------+        +-------------+        +-------------+
+| Affiliate | --->   | SaaS System | --->   | Merchant API|
++-----------+        +-------------+        +-------------+
+       ^                                          |
+       |                                          v
+       +-------------------- Customer Purchase ---+
+
+
+---
+
+⚙️ Backend & Database
+
+MySQL with Sequelize ORM
+
+CRUD-based architecture for all core modules (auth, referral, merchant, wallet, payout)
+
+Secure APIs with JWT Authentication
+
+Webhooks for order verification
+
+AI tracking logic for fraud detection and smart attribution
+
+
+📄 Key Tables
+
+users (affiliates & admins)
+
+merchants
+
+referrals
+
+transactions
+
+payouts
+
+store_integrations
+
+
+
+---
+
+🔐 Integration & Security
+
+Merchants integrate using:
+
+Secure JavaScript Snippet (copy/paste)
+
+RESTful API Key
+
+
+Prevents link tampering via server-side validation.
+
+GDPR & privacy compliant.
+
+
+
+---
+
+🤖 AI Layer
+
+Smart affiliate recommendations based on performance.
+
+Predictive commission modeling.
+
+Fraud prevention using behavior analysis.
+
+
+
+---
+
+🚀 Installation & Development
+
+1. Clone repo
+
+
+2. Install dependencies:
+
+npm install
+
+
+3. Configure .env file:
+
+DB_HOST=localhost
+DB_USER=root
+DB_PASS=password
+DB_NAME=affiliate_saas
+JWT_SECRET=your_secret
+
+
+4. Run migrations:
+
+npx sequelize-cli db:migrate
+
+
+5. Start Expo:
+
+npx expo start
+
+
+
+
+---
+
+🧭 MASTER PROMPT for AI Code Generation
+
+Use this prompt in Vib Coding AI or any AI builder:
+
+Build a full-stack Affiliate SaaS system using React Native (Expo Go), Tailwind CSS (dark mode default), shadcn/ui, Lucide React, and MySQL.
+Include CRUD for users, merchants, referrals, and payouts.
+Add JWT auth, dashboard analytics, AI referral engine, and store API integrations.
+Apply teal-themed design inspired by Prepilixity with both dark and light modes.
+
+
+---
+
+🧰 File Structure
+
+root
+ ┣ 📁 src
+ ┃ ┣ 📁 components
+ ┃ ┣ 📁 screens
+ ┃ ┣ 📁 services
+ ┃ ┗ 📁 hooks
+ ┣ 📁 backend
+ ┃ ┣ 📁 models
+ ┃ ┣ 📁 routes
+ ┃ ┗ 📁 controllers
+ ┣ 📄 tailwind.config.js
+ ┣ 📄 theme.js
+ ┣ 📄 app.json
+ ┣ 📄 .env
+ ┗ 📘 README.md
+
+
+---
+
+💎 Visual Identity Summary
+
+Default: Dark Mode (Teal-accented)
+
+Light Mode available
+
+Modern, accessible, and consistent UX
+
+
+
+---
+
+© 2025 Affiliate SaaS Platform | Designed with ❤️ using React Native, Tailwind CSS, shadcn/ui & Lucide Icons.
+

@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSS Variables */
+:root {
+  --radius: 0.5rem;
+  --primary: #14b8a6;
+  --primary-light: #5eead4;
+  --primary-dark: #0d9488;
+  --secondary: #8b5cf6;
+  --accent: #ef4444;
+  --background: #ffffff;
+  --foreground: #0f172a;
+  --muted: #94a3b8;
+  --border: #e2e8f0;
+}
+
+[data-theme='dark'] {
+  --background: #0f172a;
+  --foreground: #f1f5f9;
+  --border: #334155;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Base styles */
+* {
+  @apply border-border;
+}
+
+body {
+  @apply bg-background text-foreground;
+  font-feature-settings: 'rlig' 1 'calt' 1;
+}
+
+/* RTL Support */
+[dir='rtl'] {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir='ltr'] {
+  direction: ltr;
+  text-align: left;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-slate-100 dark:bg-slate-900;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 dark:bg-slate-700 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-slate-400 dark:bg-slate-600;
+}
+
+/* Selection */
+::selection {
+  @apply bg-primary text-white;
+}
+
+/* Focus styles */
+:focus-visible {
+  @apply outline-none ring-2 ring-primary ring-offset-2 dark:ring-offset-slate-950;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Utility classes */
+.container-safe {
+  @apply px-4 sm:px-6 lg:px-8;
+}
+
+.transition-smooth {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+.gradient-primary {
+  @apply bg-gradient-to-r from-primary to-primary-light;
+}
+
+.gradient-dark {
+  @apply dark:from-slate-900 dark:to-slate-800;
+}
+
+.text-gradient {
+  @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
+}
+
+.card {
+  @apply rounded-lg border border-border bg-white dark:bg-slate-900 shadow-sm dark:shadow-dark-sm;
+}
+
+.card-hover {
+  @apply card transition-smooth hover:shadow-md dark:hover:shadow-dark-md hover:border-primary;
+}
+
+.btn-base {
+  @apply inline-flex items-center justify-center rounded-lg font-medium transition-smooth focus-visible:outline-none;
+}
+
+.btn-primary {
+  @apply btn-base bg-primary text-white hover:bg-primary-dark active:scale-95;
+}
+
+.btn-secondary {
+  @apply btn-base bg-slate-100 text-slate-900 dark:bg-slate-800 dark:text-slate-50 hover:bg-slate-200 dark:hover:bg-slate-700;
+}
+
+.btn-ghost {
+  @apply btn-base text-primary hover:bg-primary/10 dark:hover:bg-primary/20;
+}
+
+.input-base {
+  @apply w-full rounded-lg border border-border bg-white dark:bg-slate-900 px-4 py-2 text-foreground placeholder-muted transition-smooth focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary;
+}
+
+.badge {
+  @apply inline-flex items-center rounded-full px-3 py-1 text-sm font-medium;
+}
+
+.badge-primary {
+  @apply badge bg-primary/10 text-primary dark:bg-primary/20;
+}
+
+.badge-success {
+  @apply badge bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400;
+}
+
+.badge-warning {
+  @apply badge bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400;
+}
+
+.badge-error {
+  @apply badge bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400;
+}
+
+/* Dark mode specific */
+@media (prefers-color-scheme: dark) {
+  body {
+    @apply bg-slate-950 text-slate-50;
+  }
+}
+
+/* Print styles */
+@media print {
+  body {
+    @apply bg-white text-black;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    @apply !transition-none !animate-none;
+  }
+}
+
